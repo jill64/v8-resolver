@@ -1,0 +1,60 @@
+{
+  "name": "@jill64/v8-resolver",
+  "description": "🔱 Revive Chaotic Raw V8 Coverage",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "!**/*.test.*"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc && npx publint",
+    "prepack": "npm run build",
+    "test": "vitest",
+    "lint": "npx eslint . && npx depcheck",
+    "format": "npx prettier -w ."
+  },
+  "prettier": "@jill64/prettier-config",
+  "devDependencies": {
+    "@jill64/eslint-config-ts": "1.1.0",
+    "@jill64/prettier-config": "1.0.0",
+    "typescript": "5.3.3",
+    "vitest": "1.2.2"
+  },
+  "dependencies": {
+    "@types/node": "20.11.16",
+    "typescanner": "0.5.3",
+    "@jill64/attempt": "1.1.1"
+  },
+  "homepage": "https://github.com/jill64/v8-resolver#readme",
+  "license": "MIT",
+  "bugs": "https://github.com/jill64/v8-resolver/issues",
+  "author": {
+    "name": "jill64",
+    "email": "intents.turrets0h@icloud.com",
+    "url": "https://github.com/jill64",
+    "image": "https://avatars.githubusercontent.com/u/143883742?v=4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jill64/v8-resolver.git",
+    "image": "https://opengraph.githubassets.com/224ef2adfbf90571a0d708acdd0ab3ca6352558bd1db03fbd404d3a55a30121d/jill64/v8-resolver"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "convert",
+    "coverage",
+    "node",
+    "v8",
+    "wip"
+  ]
+}
