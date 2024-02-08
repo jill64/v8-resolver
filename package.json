@@ -1,6 +1,6 @@
 {
   "name": "@jill64/v8-resolver",
-  "description": "",
+  "description": "🔱 Revive Chaotic Raw V8 Coverage",
   "version": "0.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -32,5 +32,29 @@
     "@types/node": "20.11.16",
     "typescanner": "0.5.3",
     "@jill64/attempt": "1.1.1"
-  }
+  },
+  "homepage": "https://github.com/jill64/v8-resolver#readme",
+  "license": "MIT",
+  "bugs": "https://github.com/jill64/v8-resolver/issues",
+  "author": {
+    "name": "jill64",
+    "email": "intents.turrets0h@icloud.com",
+    "url": "https://github.com/jill64",
+    "image": "https://avatars.githubusercontent.com/u/143883742?v=4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jill64/v8-resolver.git",
+    "image": "https://opengraph.githubassets.com/224ef2adfbf90571a0d708acdd0ab3ca6352558bd1db03fbd404d3a55a30121d/jill64/v8-resolver"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "convert",
+    "coverage",
+    "node",
+    "v8",
+    "wip"
+  ]
 }
