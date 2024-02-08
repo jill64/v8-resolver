@@ -1,7 +1,16 @@
 import { array, number, optional, scanner, string } from 'typescanner'
 import { GuardType } from '../types/GuardType.js'
-import { isSourceMapPayload } from './isSourceMapPayload.js'
 import { isV8Coverage } from './isV8Coverage.js'
+
+const isSourceMapPayload = scanner({
+  file: string,
+  version: number,
+  sources: array(string),
+  sourcesContent: array(string),
+  names: array(string),
+  mappings: string,
+  sourceRoot: string
+})
 
 const isSourceMapCacheValue = scanner({
   url: string,
