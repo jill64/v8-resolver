@@ -8,6 +8,8 @@
 
 <!----- END GHOST DOCS BADGES ----->
 
+🔱 Revive Chaotic Raw V8 Coverage
+
 <!----- END GHOST DOCS HEADER ----->
 
 Convert from V8 coverage of JS files built from multiple sources to V8 coverage of source files.
