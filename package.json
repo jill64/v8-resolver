@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "@jill64/v8-resolver",
   "description": "",
   "version": "0.0.0",
   "type": "module",
@@ -27,5 +27,10 @@
     "@jill64/prettier-config": "1.0.0",
     "typescript": "5.3.3",
     "vitest": "1.2.2"
+  },
+  "dependencies": {
+    "@types/node": "20.11.16",
+    "typescanner": "0.5.3",
+    "@jill64/attempt": "1.1.1"
   }
 }
