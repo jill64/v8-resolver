@@ -1,8 +1,8 @@
 import { conversion } from './conversion.js'
 import { V8Coverage } from './index.js'
+import { merge } from './merge.js'
 import { search } from './search.js'
 import { NodeV8Coverage } from './types/NodeV8Coverage.js'
-import { nonNullable } from './utils/nonNullable.js'
 
 export const resolve = async (
   coverage: NodeV8Coverage
@@ -13,14 +13,14 @@ export const resolve = async (
     const sourceMap = cache?.[coverage.url]?.data ?? (await search(coverage))
 
     if (!sourceMap) {
-      return null
+      return []
     }
 
     return conversion(coverage, sourceMap)
   })
 
   const converted = await Promise.all(promises)
-  const resolved = converted.filter(nonNullable)
+  const resolved = merge(converted.flat())
 
   return resolved
 }
