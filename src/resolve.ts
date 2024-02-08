@@ -1,6 +1,5 @@
 import { conversion } from './conversion.js'
 import { V8Coverage } from './index.js'
-import { merge } from './merge.js'
 import { search } from './search.js'
 import { NodeV8Coverage } from './types/NodeV8Coverage.js'
 
@@ -20,7 +19,7 @@ export const resolve = async (
   })
 
   const converted = await Promise.all(promises)
-  const resolved = merge(converted.flat())
+  const resolved = converted.flat()
 
   return resolved
 }

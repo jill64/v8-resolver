@@ -36,6 +36,15 @@ import { resolve, fromPath } from '@jill64/v8-resolver'
 const result = await resolve(fromPath('/path/to/coverage-file.json'))
 ```
 
+## Merge Results
+
+```js
+import { resolve, merge } from '@jill64/v8-resolver'
+
+const resolved = await resolve(/* ... */)
+const merged = merge(resolved)
+```
+
 <!----- BEGIN GHOST DOCS FOOTER ----->
 
 ## License
