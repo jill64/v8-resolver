@@ -43,7 +43,3 @@ const result = await resolve(fromPath('/path/to/coverage-file.json'))
 [MIT](LICENSE)
 
 <!----- END GHOST DOCS FOOTER ----->
-
-```
-
-```
