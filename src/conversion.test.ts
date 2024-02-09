@@ -42,7 +42,6 @@ test('conversion', async () => {
   )
 
   const resultFns = result.map((x) => x.functions)
-  console.log(JSON.stringify(resultFns))
 
   expect(resultFns).toEqual([
     [

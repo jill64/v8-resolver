@@ -13,8 +13,6 @@ export const conversion = async (
 ): Promise<V8Coverage[]> => {
   const generatedLineLengths = lineLengths ?? calcLineLengths(coverage.source)
 
-  console.log({ source: coverage.source, generatedLineLengths })
-
   const map = new SourceMap(sourceMap)
 
   const result = coverage.functions.flatMap((fn, fnIndex) =>
