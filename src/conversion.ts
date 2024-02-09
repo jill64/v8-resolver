@@ -7,11 +7,17 @@ import { resolveRelativeUrl } from './utils/resolveRelativeUrl.js'
 import { toOffset } from './utils/toOffset.js'
 import { toPosition } from './utils/toPosition.js'
 
-export const conversion = async (
-  coverage: V8Coverage,
-  sourceMap: SourceMapPayload,
+export const conversion = async ({
+  coverage,
+  sourceMap,
+  lineLengths,
+  root
+}: {
+  coverage: V8Coverage
+  sourceMap: SourceMapPayload
   lineLengths?: number[]
-): Promise<V8Coverage[]> => {
+  root?: string
+}): Promise<V8Coverage[]> => {
   const generatedLineLengths = lineLengths ?? calcLineLengths(coverage.source)
 
   const map = new SourceMap(sourceMap)
@@ -71,7 +77,11 @@ export const conversion = async (
         calcLineLengths(map.payload.sourcesContent[endSourceIndex])
       )
 
-      const url = resolveRelativeUrl(startMapping.originalSource, coverage.url)
+      const url = resolveRelativeUrl(
+        startMapping.originalSource,
+        coverage.url,
+        root
+      )
 
       const source = await fetchFile(url)
 
