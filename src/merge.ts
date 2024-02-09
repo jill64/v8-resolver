@@ -4,57 +4,48 @@ type Dict = {
   [url: string]: Omit<V8Coverage, 'url'>
 }
 
-export const merge = (
-  converted: V8Coverage[],
-  options?: {
-    depth?: 'url' | 'function'
-  }
-): V8Coverage[] => {
-  const { depth = 'function' } = options ?? {}
+export const merge = (converted: V8Coverage[]): V8Coverage[] => {
+  const dict: Dict = {}
 
-  const dict = converted.reduce((prev, curr) => {
-    if (!prev[curr.url]) {
-      return {
-        ...prev,
-        [curr.url]: curr
-      }
+  converted.forEach((cov) => {
+    const dictItem = dict[cov.url]
+
+    if (!dictItem) {
+      dict[cov.url] = cov
+      return
     }
 
-    if (depth === 'url') {
-      return {
-        ...prev,
-        [curr.url]: {
-          ...prev[curr.url],
-          functions: [...prev[curr.url].functions, ...curr.functions]
+    const dictFunctions = dict[cov.url].functions
+
+    cov.functions.forEach((fn) => {
+      const fnIndex = dictFunctions.findIndex(
+        (x) => x.functionName === fn.functionName
+      )
+
+      if (fnIndex === -1) {
+        dictFunctions.push(fn)
+        return
+      }
+
+      const matchDictFn = dictFunctions[fnIndex]
+
+      fn.ranges.forEach((range) => {
+        const rangeIndex = matchDictFn.ranges.findIndex(
+          (x) =>
+            x.startOffset === range.startOffset &&
+            x.endOffset === range.endOffset
+        )
+
+        if (rangeIndex === -1) {
+          matchDictFn.ranges.push(range)
+          return
         }
-      }
-    }
 
-    const functions = curr.functions.reduce((acc, cur) => {
-      if (!acc.some((fn) => fn.functionName === cur.functionName)) {
-        return [...acc, cur]
-      }
-
-      const index = acc.findIndex((fn) => fn.functionName === cur.functionName)
-
-      return [
-        ...acc.slice(0, index),
-        {
-          ...acc[index],
-          ranges: [...acc[index].ranges, ...cur.ranges]
-        },
-        ...acc.slice(index + 1)
-      ]
-    }, prev[curr.url].functions)
-
-    return {
-      ...prev,
-      [curr.url]: {
-        ...prev[curr.url],
-        functions
-      }
-    }
-  }, {} as Dict)
+        matchDictFn.ranges[rangeIndex].count += range.count
+      })
+    })
+    return
+  })
 
   const merged = Object.entries(dict).map(([url, value]) => ({
     url,
