@@ -16,7 +16,13 @@ export const resolveRelativeUrl = (
     ? base.slice(fileSchema.length)
     : (base.startsWith('http') || base.startsWith('https')) &&
         new URL(base).hostname === 'localhost'
-      ? path.join(root, '.svelte-kit', 'output', 'client', base)
+      ? path.join(
+          root,
+          '.svelte-kit',
+          'output',
+          'client',
+          new URL(base).pathname
+        )
       : base
 
   const resolved = `${fileSchema}${path.resolve(validBase, url)}`
