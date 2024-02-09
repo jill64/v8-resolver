@@ -71,10 +71,8 @@ export const conversion = async (
         calcLineLengths(map.payload.sourcesContent[endSourceIndex])
       )
 
-      const url = await resolveRelativeUrl(
-        startMapping.originalSource,
-        coverage.url
-      )
+      const url = resolveRelativeUrl(startMapping.originalSource, coverage.url)
+
       const source = await fetchFile(url)
 
       return {
