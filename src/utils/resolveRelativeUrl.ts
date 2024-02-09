@@ -3,7 +3,11 @@ import process from 'node:process'
 
 const fileSchema = 'file://'
 
-export const resolveRelativeUrl = (url: string, base: string): string => {
+export const resolveRelativeUrl = (
+  url: string,
+  base: string,
+  root = process.cwd()
+): string => {
   if (!url.startsWith('./') && !url.startsWith('../')) {
     return url
   }
@@ -12,7 +16,7 @@ export const resolveRelativeUrl = (url: string, base: string): string => {
     ? base.slice(fileSchema.length)
     : (base.startsWith('http') || base.startsWith('https')) &&
         new URL(base).hostname === 'localhost'
-      ? path.join(process.cwd(), '.svelte-kit', 'output', 'client', base)
+      ? path.join(root, '.svelte-kit', 'output', 'client', base)
       : base
 
   const resolved = `${fileSchema}${path.resolve(validBase, url)}`
