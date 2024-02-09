@@ -1,9 +1,9 @@
 import { SourceMap, SourceMapPayload } from 'node:module'
-import path from 'node:path'
 import { V8Coverage } from './index.js'
 import { calcLineLengths } from './utils/calcLineLengths.js'
 import { fetchFile } from './utils/fetchFile.js'
 import { nonNullable } from './utils/nonNullable.js'
+import { resolveRelativeUrl } from './utils/resolveRelativeUrl.js'
 import { toOffset } from './utils/toOffset.js'
 import { toPosition } from './utils/toPosition.js'
 
@@ -71,11 +71,7 @@ export const conversion = async (
         calcLineLengths(map.payload.sourcesContent[endSourceIndex])
       )
 
-      const sourceURL = startMapping.originalSource
-
-      const url = sourceURL.startsWith('.')
-        ? path.resolve(coverage.url, sourceURL)
-        : sourceURL
+      const url = resolveRelativeUrl(startMapping.originalSource, coverage.url)
 
       const source = await fetchFile(url)
 
