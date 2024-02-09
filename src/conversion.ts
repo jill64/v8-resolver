@@ -73,7 +73,7 @@ export const conversion = async (
 
       const sourceURL = startMapping.originalSource
 
-      const url = startMapping.originalSource.startsWith('.')
+      const url = sourceURL.startsWith('.')
         ? path.resolve(coverage.url, sourceURL)
         : sourceURL
 
