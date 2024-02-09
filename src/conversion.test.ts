@@ -7,8 +7,8 @@ const generated = `function o(){throw console.log("START"),new Error("DUMMY")}tr
 //# sourceMappingURL=index.js.map`
 
 test('conversion', async () => {
-  const result = await conversion(
-    {
+  const result = await conversion({
+    coverage: {
       url: 'mock://generated/file.js',
       scriptId: '123',
       source: generated,
@@ -26,7 +26,7 @@ test('conversion', async () => {
         }
       ]
     },
-    {
+    sourceMap: {
       version: 3,
       file: 'mock://generated/file.js',
       sources: ['../src/main.ts', '../src/datetime.ts'],
@@ -39,7 +39,7 @@ test('conversion', async () => {
       names: ['main', 'main', 'err'],
       sourceRoot: ''
     }
-  )
+  })
 
   const resultFns = result.map((x) => x.functions)
 
