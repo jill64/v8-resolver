@@ -5,8 +5,10 @@ import process from 'node:process'
 
 const fileSchema = 'file://'
 
-const findRoot = async (): Promise<string> => {
-  const cwd = process.cwd()
+const findRoot = async (cwd: string, depth = 0): Promise<string> => {
+  if (depth > 2) {
+    return ''
+  }
 
   if (existsSync(path.join(cwd, '.svelte-kit'))) {
     return cwd
@@ -20,29 +22,47 @@ const findRoot = async (): Promise<string> => {
     (dirent) => dirent.isDirectory() && dirent.name === '.svelte-kit'
   )
 
-  if (!root) {
-    throw new Error('Could not find root directory')
+  if (root) {
+    return root.path
   }
 
-  return root.path
+  for (const item of list) {
+    if (item.isDirectory()) {
+      const result = await findRoot(path.join(item.path, item.name), depth + 1)
+
+      if (result) {
+        return result
+      }
+    }
+  }
+
+  throw new Error('Could not find root')
 }
 
 export const resolveRelativeUrl = async (
   url: string,
   base: string
 ): Promise<string> => {
-  const validBase = base.startsWith(fileSchema)
-    ? base
-    : base.startsWith('http') || base.startsWith('https')
-      ? path.join(await findRoot(), '.svelte-kit', 'output', 'client', base)
-      : base.startsWith('/')
-        ? `${fileSchema}${base}`
-        : base
+  if (!url.startsWith('./') && !url.startsWith('../')) {
+    return url
+  }
 
-  const resolved =
-    url.startsWith('./') || url.startsWith('../')
-      ? path.resolve(validBase, url)
-      : url
+  const validBase = base.startsWith(fileSchema)
+    ? base.slice(fileSchema.length)
+    : (base.startsWith('http') || base.startsWith('https')) &&
+        new URL(base).hostname === 'localhost'
+      ? path.join(
+          await findRoot(process.cwd()),
+          '.svelte-kit',
+          'output',
+          'client',
+          base
+        )
+      : base
+
+  console.log({ validBase })
+
+  const resolved = `${fileSchema}${path.resolve(validBase, url)}`
 
   return resolved
 }
