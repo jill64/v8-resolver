@@ -17,7 +17,8 @@
   "scripts": {
     "build": "tsc && npx publint",
     "prepack": "npm run build",
-    "test": "vitest",
+    "test": "npm run test:prepare && vitest",
+    "test:prepare": "npx tsx test/demo/scripts/build.ts",
     "lint": "npx eslint . && npx depcheck",
     "format": "npx prettier -w ."
   },
@@ -25,13 +26,14 @@
   "devDependencies": {
     "@jill64/eslint-config-ts": "1.1.0",
     "@jill64/prettier-config": "1.0.0",
+    "esbuild": "0.20.0",
     "typescript": "5.3.3",
     "vitest": "1.2.2"
   },
   "dependencies": {
+    "@jill64/attempt": "1.1.1",
     "@types/node": "20.11.17",
-    "typescanner": "0.5.3",
-    "@jill64/attempt": "1.1.1"
+    "typescanner": "0.5.3"
   },
   "homepage": "https://github.com/jill64/v8-resolver#readme",
   "license": "MIT",
