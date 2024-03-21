@@ -31,7 +31,7 @@
     "vitest": "1.4.0"
   },
   "dependencies": {
-    "@jill64/attempt": "1.1.1",
+    "@jill64/attempt": "1.1.2",
     "@types/node": "20.11.30",
     "typescanner": "0.5.3"
   },
