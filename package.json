@@ -28,7 +28,7 @@
     "@jill64/prettier-config": "1.0.0",
     "esbuild": "0.20.2",
     "typescript": "5.4.5",
-    "vitest": "1.5.2"
+    "vitest": "1.5.3"
   },
   "dependencies": {
     "@jill64/attempt": "1.1.2",
@@ -47,7 +47,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/v8-resolver.git",
-    "image": "https://opengraph.githubassets.com/368160554582aa89f8f76e84289b737fdafbd5b8ed5bc36451b1965e9842262f/jill64/v8-resolver"
+    "image": "https://opengraph.githubassets.com/90f6617d092d08509bffa0bfde4e12966cb57dc6710e5c4375f53ffdb19e18e1/jill64/v8-resolver"
   },
   "publishConfig": {
     "access": "public"
