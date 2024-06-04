@@ -8,8 +8,8 @@ import { NodeV8Coverage, resolve } from '../src/index'
 
 const _dirname = path.dirname(new URL(import.meta.url).pathname)
 const __dirname = path.sep === '/' ? _dirname : _dirname.slice(1)
-const out = path.resolve(__dirname, 'demo','coverage')
-const execPath = path.resolve(__dirname,'demo', 'scripts', 'exec.js')
+const out = path.resolve(__dirname, 'demo', 'coverage')
+const execPath = path.resolve(__dirname, 'demo', 'scripts', 'exec.js')
 
 test('integration', async () => {
   await rm(out, { recursive: true, force: true })
