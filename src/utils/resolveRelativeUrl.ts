@@ -9,7 +9,7 @@ export const resolveRelativeUrl = (
   base: string,
   root = process.cwd()
 ): string => {
-  if (!url.startsWith('./') && !url.startsWith('../')) {
+  if (!url.startsWith(`.${path.sep}`) && !url.startsWith(`..${path.sep}`)) {
     return url
   }
 
@@ -19,7 +19,11 @@ export const resolveRelativeUrl = (
       ? path.join(root, attempt(() => new URL(base), null)?.pathname ?? '')
       : base
 
-  const resolved = `${fileSchema}${path.join(validBase, '/../', url)}`
+  const resolved = `${fileSchema}${path.join(
+    validBase,
+    `${path.sep}..${path.sep}`,
+    url
+  )}`
 
   return resolved
 }

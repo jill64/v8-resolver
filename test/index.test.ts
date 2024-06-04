@@ -6,9 +6,10 @@ import v8 from 'node:v8'
 import { test } from 'vitest'
 import { NodeV8Coverage, resolve } from '../src/index'
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
-const out = path.resolve(__dirname, './demo/coverage')
-const execPath = path.resolve(__dirname, './demo/scripts/exec.js')
+const _dirname = path.dirname(new URL(import.meta.url).pathname)
+const __dirname = path.sep === '/' ? _dirname : _dirname.slice(1)
+const out = path.resolve(__dirname, 'demo','coverage')
+const execPath = path.resolve(__dirname,'demo', 'scripts', 'exec.js')
 
 test('integration', async () => {
   await rm(out, { recursive: true, force: true })
