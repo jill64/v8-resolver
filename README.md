@@ -2,11 +2,11 @@
 
 # @jill64/v8-resolver
 
-
 <!----- BEGIN GHOST DOCS BADGES ----->
-<a href="https://npmjs.com/package/@jill64/v8-resolver"><img src="https://img.shields.io/npm/v/@jill64/v8-resolver" alt="npm-version" /></a> <a href="https://npmjs.com/package/@jill64/v8-resolver"><img src="https://img.shields.io/npm/l/@jill64/v8-resolver" alt="npm-license" /></a> <a href="https://npmjs.com/package/@jill64/v8-resolver"><img src="https://img.shields.io/npm/dm/@jill64/v8-resolver" alt="npm-download-month" /></a> <a href="https://npmjs.com/package/@jill64/v8-resolver"><img src="https://img.shields.io/bundlephobia/min/@jill64/v8-resolver" alt="npm-min-size" /></a> <a href="https://github.com/jill64/v8-resolver/actions/workflows/ci.yml"><img src="https://github.com/jill64/v8-resolver/actions/workflows/ci.yml/badge.svg" alt="ci.yml" /></a>
-<!----- END GHOST DOCS BADGES ----->
 
+<a href="https://npmjs.com/package/@jill64/v8-resolver"><img src="https://img.shields.io/npm/v/@jill64/v8-resolver" alt="npm-version" /></a> <a href="https://npmjs.com/package/@jill64/v8-resolver"><img src="https://img.shields.io/npm/l/@jill64/v8-resolver" alt="npm-license" /></a> <a href="https://npmjs.com/package/@jill64/v8-resolver"><img src="https://img.shields.io/npm/dm/@jill64/v8-resolver" alt="npm-download-month" /></a> <a href="https://npmjs.com/package/@jill64/v8-resolver"><img src="https://img.shields.io/bundlephobia/min/@jill64/v8-resolver" alt="npm-min-size" /></a> <a href="https://github.com/jill64/v8-resolver/actions/workflows/ci.yml"><img src="https://github.com/jill64/v8-resolver/actions/workflows/ci.yml/badge.svg" alt="ci.yml" /></a>
+
+<!----- END GHOST DOCS BADGES ----->
 
 🔱 Revive Chaotic Raw V8 Coverage
 
