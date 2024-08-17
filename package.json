@@ -26,7 +26,7 @@
   "devDependencies": {
     "@jill64/eslint-config-ts": "1.1.35",
     "@jill64/prettier-config": "1.0.0",
-    "esbuild": "0.23.0",
+    "esbuild": "0.23.1",
     "typescript": "5.5.4",
     "vitest": "2.0.5"
   },
@@ -47,7 +47,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/v8-resolver.git",
-    "image": "https://opengraph.githubassets.com/6c99af5461cbae873553647f54012d6d96b4805ba293893a3664febc23f8c551/jill64/v8-resolver"
+    "image": "https://opengraph.githubassets.com/0ee16686a40dd3808cb03f9211f8225bf5085b4333d3fd89b26a779b8e5a66ce/jill64/v8-resolver"
   },
   "publishConfig": {
     "access": "public"
