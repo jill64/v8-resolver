@@ -1,7 +1,7 @@
 {
   "name": "@jill64/v8-resolver",
   "description": "🔱 Revive Chaotic Raw V8 Coverage",
-  "version": "0.4.43",
+  "version": "0.4.44",
   "type": "module",
   "main": "dist/index.js",
   "files": [
