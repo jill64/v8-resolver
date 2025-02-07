@@ -47,7 +47,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/v8-resolver.git",
-    "image": "https://opengraph.githubassets.com/78f7a28c78709d17efbb5aa09d13ade4d96e6b42877519ec8ba7e4af36f28150/jill64/v8-resolver"
+    "image": "https://opengraph.githubassets.com/928116587afe1734de8d4ac6e254a7b7c6dbc7d79061ddc97fd358c334133849/jill64/v8-resolver"
   },
   "publishConfig": {
     "access": "public"
