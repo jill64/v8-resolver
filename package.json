@@ -1,7 +1,7 @@
 {
   "name": "@jill64/v8-resolver",
   "description": "🔱 Revive Chaotic Raw V8 Coverage",
-  "version": "0.4.52",
+  "version": "0.4.53",
   "type": "module",
   "main": "dist/index.js",
   "files": [
@@ -31,7 +31,7 @@
     "vitest": "3.1.1"
   },
   "dependencies": {
-    "@jill64/attempt": "1.1.6",
+    "@jill64/attempt": "1.1.7",
     "@types/node": "22.10.8",
     "typescanner": "0.5.3"
   },
@@ -47,7 +47,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/v8-resolver.git",
-    "image": "https://opengraph.githubassets.com/2ffd8d3f1392f6d66ac395f4dac85b2d2394cb08c0a14479c0365f659a849a3e/jill64/v8-resolver"
+    "image": "https://opengraph.githubassets.com/558dbb4c733a97075adbb9e085688bc9ba7244d9bc803f197281f707ee677d5d/jill64/v8-resolver"
   },
   "publishConfig": {
     "access": "public"
