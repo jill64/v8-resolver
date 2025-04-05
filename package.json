@@ -27,7 +27,7 @@
     "@jill64/eslint-config-ts": "2.0.23",
     "@jill64/prettier-config": "1.0.0",
     "esbuild": "0.25.2",
-    "typescript": "5.8.2",
+    "typescript": "5.8.3",
     "vitest": "3.1.1"
   },
   "dependencies": {
